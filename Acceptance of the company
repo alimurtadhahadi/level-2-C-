@@ -1,0 +1,185 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct Owner_Info
+{
+	string full_Name = "Ali murtada ";
+	string father_name = "Hadi ";
+	string grandfather_name = "shaher";
+	int Age = 14;
+	string Fast_track_Code = "ali_murtada2012";
+};
+struct user_Enter
+{
+	Owner_Info OwnerInfo;
+	string userName;
+	int Age;
+	int userNum;
+	string Fast_track_Code_try;
+	bool has_Driver_license;
+	string answer_of_if_he_has_Driver_license;
+	int choice;
+};
+void classified_userNum(user_Enter userEnter);
+void print_My_Info(Owner_Info OwnerInfo)
+{
+	cout << "his name (" << OwnerInfo.full_Name << "), his father's name (" << OwnerInfo.father_name
+		<< ") and his grandfather's name (" << OwnerInfo.grandfather_name << endl;
+	cout << "his Age is " << OwnerInfo.Age << endl;
+	cout << "he leurn with Mohammad Abu-hadhoud" << endl;
+}
+string read_user_name(user_Enter& userEnter)
+{
+	cout << "please enter your name :";
+	getline(cin, userEnter.userName);
+	return userEnter.userName;
+}
+void read_user_name_print_welcome_to_user(user_Enter& userEnter)
+{
+	cout << "___________________________________________________" << endl;
+	read_user_name (userEnter);
+	cout << "welcome (" << userEnter.userName << ") to My program" << endl;
+	cout << "---------------------------------------------------" << endl;
+}
+int read_user_Age(user_Enter& userEnter)
+{
+	cout << userEnter.userName << " please enter your Age :";
+	cin >> userEnter.Age;
+	return userEnter.Age;
+}
+bool read_if_he_has_Driver_license(user_Enter& userEnter)
+{
+	do {
+		cout << "do you have driver license(yes or no) :";
+		cin >> userEnter.answer_of_if_he_has_Driver_license;
+		if (userEnter.answer_of_if_he_has_Driver_license == "yes" || userEnter.answer_of_if_he_has_Driver_license == "Yes")
+		{
+			userEnter.has_Driver_license = true;
+		}
+		else if (userEnter.answer_of_if_he_has_Driver_license == "no" || userEnter.answer_of_if_he_has_Driver_license == "No")
+		{
+			userEnter.has_Driver_license = false;
+		}
+		else
+		{
+			cout << "I said yes or no *\\-/*" << endl;
+		}
+	
+} while (userEnter.answer_of_if_he_has_Driver_license != "yes" &&
+	userEnter.answer_of_if_he_has_Driver_license != "no" &&
+	userEnter.answer_of_if_he_has_Driver_license != "Yes" &&
+	userEnter.answer_of_if_he_has_Driver_license != "No");
+	return userEnter.has_Driver_license;
+}
+void Odd_or_Even_number(user_Enter& userEnter)
+{
+	do {
+		cout << "___________________________________________________________________________________" << endl;
+		cout << "please enter number to classified it (odd or even) 0 to Exit (and 0 is even) :";
+		cin >> userEnter.userNum;
+		classified_userNum(userEnter);
+		cout << "-----------------------------------------------------------------------------------" << endl;
+	} while (userEnter.userNum != 0);
+}
+void classified_userNum(user_Enter userEnter)
+{
+	if (userEnter.userNum == 0)
+	{
+		cout << "Exit is done" << endl;
+	}
+	else if (userEnter.userNum % 2 == 1)
+	{
+		cout << "your number (" << userEnter.userNum << ") is Odd" << endl;
+	}
+	else
+	{
+		cout << "your number (" << userEnter.userNum << ") is Even" << endl;
+	}
+}
+string Fast_track_Code(user_Enter& userEnter)
+{
+	cout << "do you have Fast track Code type it if you have :";
+	cin >> userEnter.Fast_track_Code_try;
+	return userEnter.Fast_track_Code_try;
+}
+void Acceptance_of_the_company(user_Enter& userEnter)
+{
+	Fast_track_Code(userEnter);
+	
+	if (userEnter.Fast_track_Code_try == userEnter.OwnerInfo.Fast_track_Code)
+	{
+		cout << "you are hired" << endl;
+	}
+	else
+	{
+		read_if_he_has_Driver_license(userEnter);
+		if (userEnter.Age >= 18 && userEnter.Age <= 45 && userEnter.has_Driver_license == true)
+		{
+			cout << "you are hired" << endl;
+		}
+		else
+		{
+			cout << "you are rejected" << endl;
+		}
+	}
+}
+int menu(user_Enter& userEnter)
+{
+	cout << "=============================================================||" << endl;
+	cout << "||MAIN    //\\\\        //\\\\      ||===== ||\\\\    || ||     || ||" << endl;
+	cout << "||       //  \\\\      //  \\\\     ||      || \\\\   || ||     || ||" << endl;
+	cout << "||      //    \\\\    //    \\\\    ||===   ||  \\\\  || ||     || ||" << endl;
+	cout << "||     //      \\\\  //      \\\\   ||      ||   \\\\ || \\\\    //  ||" << endl;
+	cout << "||    //        \\\\//        \\\\  ||===== ||    \\\\||  \\\\==//   ||" << endl;
+	cout << "||===========================================================||" << endl;
+	cout << "||type 0 to exit                                             ||" << endl;
+	cout << "||type 1 to apply to the company                             ||" << endl;
+	cout << "||type 2 to check number is odd or even                      ||" << endl;
+	cout << "||type 3 to Owner information                                ||" << endl;
+	cout << "||===========================================================||" << endl;
+	cout << "Your choice :";
+	cin >> userEnter.choice;
+	return userEnter.choice;
+}
+void user_choice(user_Enter& userEnter)
+{
+	switch (userEnter.choice)
+	{
+	case 0:
+	{
+		cout << "Exit the program is done" << endl;
+		break;
+	}
+	case 1: 
+	{
+		Acceptance_of_the_company(userEnter);
+		break;
+	}
+	case 2:
+	{
+		Odd_or_Even_number(userEnter);
+		break;
+	}
+	case 3: 
+	{
+		print_My_Info(userEnter.OwnerInfo);
+		break;
+	}
+	default: {
+		cout << "Invalid choice, please try again." << endl;
+		break;
+	}
+	}
+}
+int main()
+{
+	user_Enter userEnter;
+		read_user_name_print_welcome_to_user(userEnter);
+		read_user_Age(userEnter);
+		do{
+		menu(userEnter);
+		user_choice(userEnter);
+	} while (userEnter.choice != 0);
+
+	return 0;
+}
