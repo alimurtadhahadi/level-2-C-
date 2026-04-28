@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+float Read_user_number()
+{
+	float userNumber;
+	cout << "please enter number to half it :";
+	cin >> userNumber;
+	return userNumber;
+}
+float divide_user_number(float userNumber)
+{
+	float result = userNumber / 2;
+	return result;
+}
+void print_dividing_result(float userNumber)
+{
+	string result= "half of " + to_string(userNumber) + " is " + to_string(divide_user_number(userNumber));
+	cout << result << endl;
+}
+int main()
+{
+	print_dividing_result(Read_user_number());
+}
