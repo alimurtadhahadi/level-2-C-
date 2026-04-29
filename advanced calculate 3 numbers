@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+void read_numbers(int& Num1, int& Num2, int& Num3)
+{
+	cout << "==========================================" << endl;
+	cout << "please enter three numbers to sum them " << endl;
+	cout << "number 1 :";
+	cin >> Num1;
+	cout << "number 2 :";
+	cin >> Num2;
+	cout << "number 3 :";
+	cin >> Num3;
+}
+int calculate_3_numbers(int Num1, int Num2, int Num3)
+{
+	int sum = 0;
+	sum = Num1 + Num2 + Num3;
+	return sum;
+}
+void print_result(int sum) 
+{
+	cout << "==========================================" << endl;
+	cout << "the sum of your three numbers is :" << sum << endl;
+	cout << "==========================================" << endl;
+
+}
+int main()
+{
+	int Num1, Num2, Num3;
+	read_numbers(Num1, Num2, Num3);
+	print_result(calculate_3_numbers(Num1, Num2, Num3));
+	return 0;
+}
