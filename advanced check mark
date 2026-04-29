@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+enum enMark { pass = 1, fail = 2 };
+int read_user_mark()
+{
+	int Mark;
+	do {
+		cout << "please enter your mark to check it pass or fail :";
+		cin >> Mark;
+		if (Mark < 0 || Mark > 100)
+		{
+			cout << "Wrong mark please try again" << endl;
+			cout << "--------------------------------------------------------" << endl;
+		}
+	} while (Mark < 0 || Mark > 100);
+		return Mark;
+}
+enMark check_user_mark(int Mark)
+{
+	if (Mark >= 50)
+		return enMark::pass;
+	else
+		return enMark::fail;
+}
+void print_result(int Mark)
+{
+	
+	if (check_user_mark(Mark) == enMark::pass)
+	{
+		cout << "you are pass" << endl;
+	}
+	else
+	{
+		cout << "you are fail" << endl;
+		cout << "good luck next year" << endl;
+	}
+}
+int main()
+{
+	print_result(read_user_mark());
+	return 0;
+}
