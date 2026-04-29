@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+enum enCheckAverage { pass = 1, fail = 2 };
+void read_Marks(int& Mark1, int& Mark2, int& Mark3)
+{
+	do{
+	cout << "==========================================" << endl;
+	cout << "please enter three Mark to sum them " << endl;
+	cout << "number 1 :";
+	cin >> Mark1;
+	cout << "number 2 :";
+	cin >> Mark2;
+	cout << "number 3 :";
+	cin >> Mark3;
+	if ((Mark1 < 0 || Mark1 > 100) || (Mark2 < 0 || Mark2 > 100) || (Mark3 < 0 || Mark3 > 100))
+	{
+		cout << "Wrong mark please try again" << endl;
+		cout << "--------------------------------------------------------" << endl;
+	}
+} while ((Mark1 < 0 || Mark1 > 100) || (Mark2 < 0 || Mark2 > 100) || (Mark3 < 0 || Mark3 > 100));
+}
+int sum_of_3Marks(int Mark1, int Mark2, int Mark3)
+{
+	int sum = 0;
+	sum = Mark1 + Mark2 + Mark3;
+	return sum;
+}
+float calculate_average(int Mark1, int Mark2, int Mark3)
+{
+	float avr = sum_of_3Marks(Mark1, Mark2, Mark3) / 3.0;
+	return avr;
+}
+enCheckAverage check_Average(float avr)
+{
+	if (avr >= 50)
+		return enCheckAverage::pass;
+	else
+		return enCheckAverage::fail;
+}
+void print_result(float avr,int sum)
+{
+	cout << "the sum of your marks is " << sum << endl;
+	cout << "the average is " << avr << endl;
+	if (check_Average(avr) == enCheckAverage::pass)
+	{
+		cout << "you are pass" << endl;
+	}
+	else
+	{
+		cout << "you are fail" << endl;
+		cout << "good luck next year" << endl;
+	}
+}
+int main()
+{
+	int Mark1, Mark2, Mark3;
+	read_Marks(Mark1, Mark2, Mark3);
+	print_result(calculate_average(Mark1, Mark2, Mark3),sum_of_3Marks(Mark1, Mark2, Mark3));
+	return 0;
+}
