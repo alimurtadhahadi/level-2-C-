@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+void read_user_number(int& num1, int& num2)
+{
+	cout << "please enter 2 numbers to test them " << endl;
+	cout << "number 1 :";
+	cin >> num1;
+	cout << "number 2 :";
+	cin >> num2;
+}
+int max_of2Numbers(int num1, int num2)
+{
+	if (num1 > num2)
+		return num1;
+	else
+		return num2;
+}
+void print_Max(int Max)
+{
+	cout << "the Max of your numbers is :" << Max << endl;
+}
+int main()
+{
+	int num1, num2;
+	read_user_number(num1, num2);
+	print_Max(max_of2Numbers(num1, num2));
+		return 0;
+}
