@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+void read_user_number(int& num1, int& num2, int& num3)
+{
+	cout << "please enter 3 numbers to test them " << endl;
+	cout << "number 1 :";
+	cin >> num1;
+	cout << "number 2 :";
+	cin >> num2;
+	cout << "number 3 :";
+	cin >> num3;
+}
+int max_of3Numbers(int num1, int num2, int num3)
+{
+	if (num1 > num2)
+	{
+		if (num1 > num3)
+			return num1;
+		else
+			return num3;
+	}
+	else
+	{
+		if (num2 > num3)
+			return num2;
+		else
+			return num3;
+	}
+}
+void print_Max(int Max)
+{
+	cout << "the Max of your numbers is :" << Max << endl;
+}
+int main()
+{
+	int num1, num2,num3;
+	read_user_number(num1, num2, num3);
+	print_Max(max_of3Numbers(num1, num2,num3));
+		return 0;
+}
