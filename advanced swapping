@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+void ReadUserNumbers(int& num1, int& num2)
+{
+	cout << "please enter 2 numbers to swap. number 1 :";
+	cin >> num1;
+	cout << "number 2 :";
+	cin >> num2;
+}
+void SwapNumbers(int& num1, int& num2)
+{
+	int temp = num1;
+	num1 = num2;
+	num2 = temp;
+}
+void PrintNumbers(int num1, int num2)
+{
+	cout << "number 1 is :" << num1 << endl;
+	cout << "number 2 is :" << num2 << endl;
+}
+int main()
+{
+	int num1, num2;
+	ReadUserNumbers(num1, num2);
+	cout << "your numbers before swapping" << endl;
+	PrintNumbers(num1, num2);
+	SwapNumbers(num1, num2);
+	cout << "your numbers after swapping" << endl;
+	PrintNumbers(num1, num2);
+	return 0;
+}
