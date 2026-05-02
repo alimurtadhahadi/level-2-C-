@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+enum enMaxNumber { diagonalValue = 1, widthValue = 2 };
+void ReadNumbers(float& diagonal,float& width)
+{
+	cout << "please enter the sides of Rectangle " << endl;
+	cout << "diagonal :";
+	cin >> diagonal;
+	cout << "width :";
+	cin >> width;
+}
+enMaxNumber checkMaxNumbers(float diagonal, float width)
+{
+	if (width > diagonal)
+		return enMaxNumber::widthValue;
+	else
+		return enMaxNumber::diagonalValue;
+}
+float calculateRectangleArea(float diagonal, float width)
+{
+	float Area = 0;
+	if (checkMaxNumbers(diagonal, width) == enMaxNumber::diagonalValue)
+	{Area = width * sqrt(pow(diagonal, 2) - pow(width, 2));}
+	else
+	{Area = diagonal * sqrt(pow(width, 2) - pow(diagonal, 2));}
+		return Area;
+}
+void printRectangleArea(float RectangleArea)
+{
+	cout << "your Rectangle Area is :" << RectangleArea << endl;
+}
+int main()
+{
+	float diagonal, width;
+	ReadNumbers(diagonal, width);
+	printRectangleArea(calculateRectangleArea(diagonal, width));
+	return 0;
+}
