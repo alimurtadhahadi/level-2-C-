@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+void ReadNumbers(float& length,float& width)
+{
+	cout << "please enter the sides of Rectangle " << endl;
+	cout << "length :";
+	cin >> length;
+	cout << "width :";
+	cin >> width;
+}
+float calculateRectangleArea(float length, float width)
+{
+	return (float)length * width;
+}
+void printRectangleArea(float RectangleArea)
+{
+	cout << "your Rectangle Area is :" << RectangleArea << endl;
+}
+int main()
+{
+	float length, width;
+	ReadNumbers(length, width);
+	printRectangleArea(calculateRectangleArea(length, width));
+	return 0;
+}
