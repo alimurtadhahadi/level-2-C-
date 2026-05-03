@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+float ReadDiameterOfTheCircle()
+{
+	float Diameter;
+	cout << "please enter Diameter of the circle " << endl;
+	cout << "Diameter :";
+	cin >> Diameter;
+	return Diameter;
+}
+float calculateCircleAreaByDiameter(float Diameter)
+{
+	const float PI = 3.141592653589793238;
+	float CircleAreaByRadius = PI * pow(Diameter, 2) / 4;
+	return CircleAreaByRadius;
+}
+void printCircleArea(float CircleArea)
+{
+	cout << "your Circle Area is :" << CircleArea << endl;
+}
+int main()
+{
+	printCircleArea(calculateCircleAreaByDiameter(ReadDiameterOfTheCircle()));
+	return 0;
+}
