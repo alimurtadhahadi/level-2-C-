@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+void ReadSideAndBaseOfIsoscelesTriangle(float& Base, float& Side)
+{
+	do {
+		cout << "please enter Side and Base to calculate the circle Area inscribed Isosceles Triangle " << endl;
+		cout << "(base should be smaller than side)" << endl;
+		cout << "base Length :";
+		cin >> Base;
+		cout << "Side Length :";
+		cin >> Side;
+	} while (Base >= Side);
+}
+float calculateCircleAreaBySideAndBaseOfIsoscelesTriangle(float Base,float Side)
+{
+	const float PI = 3.141592653589793238;
+	float CircleAreaBySideAndBaseOfIsoscelesTriangle = PI * (pow(Base, 2) / 4) * ((2 * Side - Base) / (2 * Side + Base));
+	return CircleAreaBySideAndBaseOfIsoscelesTriangle;
+}
+void printCircleArea(float CircleArea)
+{
+	cout << "your Circle Area is :" << CircleArea << endl;
+}
+int main()
+{
+	float Base, Side;
+	ReadSideAndBaseOfIsoscelesTriangle(Base, Side);
+	printCircleArea(calculateCircleAreaBySideAndBaseOfIsoscelesTriangle(Base, Side));
+	return 0;
+}
