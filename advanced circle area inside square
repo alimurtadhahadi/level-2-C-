@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+float ReadSideOfSquare()
+{
+	float side;
+	cout << "please enter side of the Square to calculate the circle inside it " << endl;
+	cout << "side :";
+	cin >> side;
+	return side;
+}
+float calculateCircleAreaBySideOfSquare(float side)
+{
+	const float PI = 3.141592653589793238;
+	float CircleAreaByBySideOfSquare = PI * pow(side, 2) / 4;
+	return CircleAreaByBySideOfSquare;
+}
+void printCircleArea(float CircleArea)
+{
+	cout << "your Circle Area is :" << CircleArea << endl;
+}
+int main()
+{
+	printCircleArea(calculateCircleAreaBySideOfSquare(ReadSideOfSquare()));
+	return 0;
+}
