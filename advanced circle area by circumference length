@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+float ReadCircumferenceLength()
+{
+	float CircumferenceLength;
+	cout << "please enter Circumference Length to calculate the circle Area " << endl;
+	cout << "Circumference Length :";
+	cin >> CircumferenceLength;
+	return CircumferenceLength;
+}
+float calculateCircleAreaByCircumferenceLength(float CircumferenceLength)
+{
+	const float PI = 3.141592653589793238;
+	float CircleAreaByCircumferenceLength = pow(CircumferenceLength, 2) / (PI * 4);
+	return CircleAreaByCircumferenceLength;
+}
+void printCircleArea(float CircleArea)
+{
+	cout << "your Circle Area is :" << CircleArea << endl;
+}
+int main()
+{
+	printCircleArea(calculateCircleAreaByCircumferenceLength(ReadCircumferenceLength()));
+	return 0;
+}
