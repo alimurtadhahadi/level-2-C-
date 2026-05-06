@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+//this code for calculate circle area described around Arbitrary Triangle
+void ReadSidesOfArbitraryTriangle(float& Side1, float& Side2,float& Side3){
+	bool rightTriangleAngles;
+	do {
+		rightTriangleAngles = false;
+		cout << "please enter 3 Sides to calculate the circle Area described around Arbitrary Triangle " << endl;
+		cout << "Rule: The sum of any two sides must be greater than the third side." << endl;
+		cout << "Side1 Length :";
+		cin >> Side1;
+		cout << "Side2 Length :";
+		cin >> Side2;
+		cout << "Side3 Length :";
+		cin >> Side3;
+		if ((Side1 + Side2 > Side3) && (Side3 + Side1 > Side2) && (Side3 + Side2 > Side1)){
+		 rightTriangleAngles = true; }
+		if (rightTriangleAngles == false) {
+			cout << "Invalid sides! These numbers cannot form a triangle. Try again.\n" << endl;}
+	} while (rightTriangleAngles == false);
+}
+float calculateCircleAreaByAreaOfArbitraryTriangle(float Side1,float Side2,float Side3)
+{
+	const float PI = 3.141592653589793238;
+	float semiPerimeter = (Side1 + Side2 + Side3) / 2;
+	float CircleRadiusAreaOfArbitraryTriangle = (Side1 * Side2 * Side3) / (4 * sqrt(semiPerimeter *
+		(semiPerimeter - Side1) * (semiPerimeter - Side2) * (semiPerimeter - Side3)));
+	float CircleAreaByAreaOfArbitraryTriangle = PI * pow(CircleRadiusAreaOfArbitraryTriangle, 2);
+	return CircleAreaByAreaOfArbitraryTriangle;
+}
+void printCircleArea(float CircleArea)
+{
+	cout << "your Circle Area is :" << CircleArea << endl;
+}
+int main()
+{
+	float Side1, Side2, Side3;
+	ReadSidesOfArbitraryTriangle(Side1, Side2, Side3);
+	printCircleArea(calculateCircleAreaByAreaOfArbitraryTriangle(Side1, Side2, Side3));
+	return 0;
+}
