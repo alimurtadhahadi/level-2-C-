@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int readNumber() {
+	int Num;
+	cout << "Give me the ending number of the sequence :";
+	cin >> Num;
+	return Num;
+}
+void printNumbersInRangeFrom1ToN_byForLoop(int Num)
+{
+	for (int Counter = 1; Counter <= Num; Counter++) {
+		cout << Counter << " ";}
+}
+void printNumbersInRangeFrom1ToN_byWhileLoop(int Num) {
+	int Counter = 1;
+	while (Counter <= Num) {
+		cout << Counter << " ";
+		Counter++;	}
+}
+void printNumbersInRangeFrom1ToN_byDo_WhileLoop(int Num) {
+	int Counter = 1;
+	do {
+		cout << Counter << " "; Counter++;	} while (Counter <= Num);
+}
+int main()
+{
+	int Num = readNumber();
+	printNumbersInRangeFrom1ToN_byForLoop(Num);
+	cout << endl;
+	printNumbersInRangeFrom1ToN_byWhileLoop(Num);
+	cout << endl;
+	printNumbersInRangeFrom1ToN_byDo_WhileLoop(Num);
+	return 0;
+}
